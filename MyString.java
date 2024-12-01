@@ -31,8 +31,6 @@ public class MyString {
     }
 
     public static boolean contains(String str1, String str2) {
-        str1 = lowerCase(str1);
-        str2 = lowerCase(str2);
         char[] strChar1 = new char[str1.length()];
         char[] strChar2 = new char[str2.length()];
         for (int i = 0; i < str1.length(); i++) {
@@ -41,11 +39,13 @@ public class MyString {
         for (int j = 0; j < str2.length(); j++) {
             strChar2[j] = str2.charAt(j);
         }
+        if(str2.length() == 0){
+            return true;
+        }
         if (strChar1.length < strChar2.length) {
             return false;
         }
-        for(int i = 0;i <= str1.length() - str2.length(); i++)
-        {
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
             boolean match = true;
             for(int j = 0; j < strChar2.length; j++){
                 if (str1.charAt(i + j) != str2.charAt(j)) {
